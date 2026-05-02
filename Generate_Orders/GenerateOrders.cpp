@@ -275,7 +275,10 @@ void GenerateOrders::modifyStopLimit()
 void GenerateOrders::createOrders(int numberOfOrders)
 {
     // Open a file named "orders.txt" for writing
-    file.open("C:/Users/benja/Documents/Limit_order_book/orders.txt");
+    std::cout << "Creating Orders..." << std::endl;
+    file.open("./Orders.txt");
+    
+    std::cout << "File opened." << std::endl;
 
     if (!file.is_open()) {
         std::cerr << "Error opening file for writing!" << std::endl;
@@ -304,6 +307,7 @@ void GenerateOrders::createOrders(int numberOfOrders)
     // Calculate the cumulative probabilities
     std::partial_sum(probabilities.begin(), probabilities.end(), probabilities.begin());
 
+    std::cout << "Looping." << std::endl;
     for (size_t i = 1; i < numberOfOrders + 1; i++)
     {
         // Generate a random number between 0 and 1 
@@ -317,6 +321,7 @@ void GenerateOrders::createOrders(int numberOfOrders)
 
         // Perform the selected action
         if (selectedAction < probabilities.size()) {
+            std::cout << "selected action=" << selectedAction << std::endl;
             actions[selectedAction]();
 
             // if (i%100000 == 0)

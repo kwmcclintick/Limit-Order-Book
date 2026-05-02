@@ -8,8 +8,6 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O2")
 
 enable_testing()
 
-add_subdirectory(googletest)
-
 set(Headers
     ./Limit_Order_Book/Book.hpp
     ./Limit_Order_Book/Limit.hpp
