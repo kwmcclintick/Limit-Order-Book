@@ -9,14 +9,13 @@
 
 int main() {
     Book* book = new Book();
-
     OrderPipeline orderPipeline(book);
-    GenerateOrders generateOrders(book);
-    //generateOrders.createOrders(5000000);
+
+    orderPipeline.processOrdersFromFile("./Generate_Orders/initialOrders.txt"); 
 
     // Start measuring time
     auto start = std::chrono::high_resolution_clock::now();
-    orderPipeline.processOrdersFromFile("./initialOrders.txt");
+    orderPipeline.processOrdersFromFile("./Generate_Orders/Orders.txt");
     // Stop measuring time
     auto stop = std::chrono::high_resolution_clock::now();
     // Calculate the duration

@@ -4,4 +4,6 @@ mkdir build
 cd build
 cmake ..
 make
-mv LimitOrderBook ../
+cp LimitOrderBook ../
+cp GenerateOrders ../
+cp ./test/LimitOrderBookTests ../
